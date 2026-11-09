@@ -11,6 +11,8 @@ services:
         sync: false
       - key: DISCORD_WEBHOOKS
         sync: false
+      - key: DISCORD_PROXY
+        sync: false
       - key: GITHUB_TOKEN
         sync: false
       - key: GITHUB_OWNER
