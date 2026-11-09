@@ -1,0 +1,12 @@
+{
+  "name": "roblox-relay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Roblox 上报中继：Discord 播报与 GitHub 数据上报的服务端代理",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
