@@ -1,0 +1,17 @@
+name = "roblox-relay"
+main = "worker.js"
+compatibility_date = "2025-11-01"
+
+# 密钥不写在这里：部署时用 wrangler secret put 设置，或在 Dashboard 的
+# Settings -> Variables and Secrets 里以 Secret 类型添加。
+# 需要设置的变量：
+#   RELAY_TOKEN       （必填）Roblox 侧使用的 Bearer 令牌
+#   DISCORD_WEBHOOKS  （必填）Discord webhook URL，多个用英文逗号分隔
+#   GITHUB_TOKEN      （可选）GitHub 上报令牌
+#   GITHUB_OWNER      （可选）上报仓库 owner
+#   GITHUB_REPO       （可选）上报仓库名
+#   GITHUB_FILE       （可选）上报文件名，默认 game.json
+#   GITHUB_BRANCH     （可选）上报分支，默认 main
+
+# 免费额度：每天 10 万次请求，单次 10ms CPU。
+# 本服务仅做转发与校验，CPU 占用极低，免费额度足够 Roblox 游戏上报使用。
