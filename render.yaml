@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: roblox-relay
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev --no-audit --no-fund
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: RELAY_TOKEN
+        sync: false
+      - key: DISCORD_WEBHOOKS
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_OWNER
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
+      - key: GITHUB_FILE
+        value: game.json
+      - key: GITHUB_BRANCH
+        value: main
