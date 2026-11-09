@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     buildCommand: npm install --omit=dev --no-audit --no-fund
-    startCommand: node server.js
+    startCommand: node server.cjs
     healthCheckPath: /health
     envVars:
       - key: RELAY_TOKEN
