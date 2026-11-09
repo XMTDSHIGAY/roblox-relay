@@ -373,9 +373,17 @@ async function sha256Hex(str) {
 /** 从环境变量对象解析配置（Node 的 process.env 与 Workers 的 env 均适用）。 */
 export function readConfig(env) {
   const get = (k) => (env && typeof env[k] === 'string' ? env[k] : '');
+  let webhooks = get('DISCORD_WEBHOOKS').split(',').map((s) => s.trim()).filter(Boolean);
+  // 可选 Discord 代理：设了就把每个 webhook 的 https://discord.com 前缀替换成代理基址，
+  // 与原始 Lua 脚本 behaviour(webhook.lewisakura.moe) 一致。仅允许 https 基址，避免开放重定向。
+  const discordProxy = get('DISCORD_PROXY').trim();
+  if (discordProxy && /^https:\/\//i.test(discordProxy)) {
+    const base = discordProxy.replace(/\/+$/, '');
+    webhooks = webhooks.map((u) => u.replace(/^https:\/\/discord\.com/i, base));
+  }
   return {
     relayToken: get('RELAY_TOKEN'),
-    webhooks: get('DISCORD_WEBHOOKS').split(',').map((s) => s.trim()).filter(Boolean),
+    webhooks,
     ghToken: get('GITHUB_TOKEN'),
     ghOwner: get('GITHUB_OWNER'),
     ghRepo: get('GITHUB_REPO'),
