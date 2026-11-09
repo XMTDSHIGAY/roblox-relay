@@ -42,6 +42,7 @@ Render 官方文档明确写明免费服务**不需要信用卡**（`render.com/
    |---|---|
    | `RELAY_TOKEN` | 自己生成的随机串（见下方生成命令） |
    | `DISCORD_WEBHOOKS` | 4 个 Discord webhook URL，**用英文逗号分隔** |
+   | `DISCORD_PROXY` | **可选**。Discord 直连不通时填代理基址（如 `https://webhook.lewisakura.moe`），会把每个 webhook 的 `https://discord.com` 前缀替换掉。**后端在 Render 美区，通常直连即可，先留空试一次** |
    | `GITHUB_TOKEN` | 上报用的 GitHub token |
    | `GITHUB_OWNER` | `liushumei11110-boop` |
    | `GITHUB_REPO` | `game-data` |
